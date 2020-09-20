@@ -1,0 +1,65 @@
+@import './colors.scss';
+
+.app {
+  margin: 0 auto;
+  box-sizing: border-box;
+  max-width: 2000px;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: $black;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  .navigation-button {
+    background: transparent;
+    height: 60px;
+    left: 20px;
+    position: fixed;
+    top: 15px;
+    z-index: 1000;
+    #menu-svg {
+      padding: 0;
+      svg {
+        width: 43px;
+        height: 26px;
+        border: 1px solid $gray;
+        border-radius: 4px;
+        cursor: pointer;
+        padding: 3px;
+        path {
+          z-index: 100;
+          fill: none;
+          stroke: white;
+          stroke-width: 3;
+          stroke-linecap: round;
+          transition: stroke-dashoffset
+              0.3s linear,
+            stroke-dasharray 0.3s linear;
+        }
+
+        path#p1,
+        path#path1,
+        path#p3,
+        path#path3 {
+          stroke-dasharray: 25 65;
+        }
+        path#p2,
+        path#path2 {
+          stroke-dasharray: 25 25;
+        }
+      }
+      &.anim path#p1,
+      &.anim path#path1,
+      &.anim path#p3,
+      &.anim path#path3 {
+        stroke-dashoffset: -56;
+      }
+      &.anim path#p2,
+      &.anim path#path2 {
+        stroke-dashoffset: -12;
+        stroke-dasharray: 1 20;
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+@import './colors.scss';
+
+.navigation {
+  padding-top: 60px;
+
+  @include breakpoint('large') {
+    padding-top: 0;
+    position: absolute;
+    top: 85vh;
+    right: 80px;
+    transform: translateX(-130px)
+      rotate(15deg);
+    transition: 0.3s;
+  }
+  &__wrapper {
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    transition: 0.3s;
+    opacity: 0.7;
+    z-index: 999;
+    @include breakpoint('large') {
+      background-color: white;
+      height: 1000px;
+      width: 500px;
+      left: -500px;
+      opacity: 1;
+    }
+    &--open {
+      left: 0;
+      @include breakpoint('large') {
+        transform: rotate(-15deg);
+        transform-origin: top;
+        left: -510px;
+      }
+    }
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      cursor: pointer;
+      font-size: 1.3rem;
+      line-height: 2.8rem;
+      text-align: center;
+      @include breakpoint('large') {
+        line-height: 1.8rem;
+        text-align: left;
+      }
+      a {
+        color: white;
+        opacity: 0.9;
+        text-decoration: none;
+        @include breakpoint('large') {
+          color: $dark;
+        }
+        &:hover {
+          opacity: 1;
+          transition: 0.3;
+          @include breakpoint('large') {
+            color: $darkHover;
+          }
+        }
+      }
+    }
+  }
+  &__active {
+    display: flex;
+    justify-content: center;
+    @include breakpoint('large') {
+      transform: rotate(15deg)
+        translateX(0);
+      transition-delay: 0.4s;
+    }
+  }
+}
