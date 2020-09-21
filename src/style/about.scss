@@ -1,0 +1,42 @@
+.about {
+  padding: 15px;
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    &:hover {
+      span {
+        &:nth-child(1) {
+          @include animationRotate;
+        }
+      }
+    }
+    span {
+      &:nth-child(2) {
+        display: block;
+        margin-right: 10px;
+        position: relative;
+        @include borderOval;
+        @include size(40px, 40px);
+      }
+      &:first-child {
+        font-size: 1.8rem;
+        transform: translate(28px, -2px);
+      }
+    }
+  }
+  &__description {
+    .about__text {
+      text-align: justify;
+      font-size: 1.5rem;
+      font-family: "Courier New", Courier, monospace;
+      @include breakpoint("medium") {
+        font-size: 1.2rem;
+      }
+      @include breakpoint("large") {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

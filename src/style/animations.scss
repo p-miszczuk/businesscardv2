@@ -1,0 +1,55 @@
+@mixin animateBackground {
+  animation: 40s ease infinite anim;
+  @keyframes anim {
+    0% {
+      background-position: 100% 100%;
+      transform: scale(1);
+    }
+    50% {
+      background-position: 100% 40%;
+      transform: scale(1.2);
+    }
+    100% {
+      background-position: 100% 100%;
+      transform: scale(1);
+    }
+  }
+}
+
+@mixin animateHomeContent($value) {
+  animation: displayNameAnimation 1s ease 2s forwards;
+  @keyframes displayNameAnimation {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: $value;
+    }
+  }
+}
+
+@mixin displayHomeText($value) {
+  animation: displayText 0.8s ease 3.2s forwards;
+  @keyframes displayText {
+    0% {
+      transform: translateY($value);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin animationRotate {
+  animation: animRotate 1s ease 0 infinite;
+  @keyframes animRotate {
+    0% {
+      transform: rotate(0, 0);
+    }
+    100% {
+      transform: rotate(359deg, -359deg);
+    }
+  }
+}
