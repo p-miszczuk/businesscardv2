@@ -1,6 +1,6 @@
 @mixin animateBackground {
-  animation: 40s ease infinite anim;
-  @keyframes anim {
+  animation: 40s ease infinite animBackground;
+  @keyframes animBackground {
     0% {
       background-position: 100% 100%;
       transform: scale(1);
@@ -42,14 +42,53 @@
   }
 }
 
-@mixin animationRotate {
-  animation: animRotate 1s ease 0 infinite;
-  @keyframes animRotate {
+@mixin animRotate {
+  animation: anim 1.5s ease 0s infinite;
+  @keyframes anim {
     0% {
-      transform: rotate(0, 0);
+      transform: rotateX(0deg) rotateY(0deg);
     }
     100% {
-      transform: rotate(359deg, -359deg);
+      transform: rotateX(180deg) rotateY(180deg);
+    }
+  }
+}
+
+@mixin animBorder {
+  @keyframes animBorder {
+    0% {
+    }
+    100% {
+    }
+  }
+}
+
+@mixin animateWave {
+  animation: animateWave 3s ease 2s forwards;
+  @keyframes animateWave {
+    0% {
+      left: 300px;
+      top: 140px;
+      transform: rotate(15deg);
+      transform-origin: top left;
+    }
+    45% {
+      left: 300px;
+      top: 100px;
+      transform: rotate(120deg);
+      transform-origin: top left;
+    }
+    70% {
+      left: 300px;
+      top: 100px;
+      transform: rotate(110deg);
+      transform-origin: top left;
+    }
+    100% {
+      left: 340px;
+      top: 60px;
+      transform: rotate(120deg);
+      transform-origin: top left;
     }
   }
 }

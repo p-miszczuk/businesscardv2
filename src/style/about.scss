@@ -7,12 +7,16 @@
     position: relative;
     &:hover {
       span {
-        &:nth-child(1) {
-          @include animationRotate;
+        &:nth-child(2) {
+          @include animRotate;
         }
       }
     }
     span {
+      &:first-child {
+        font-size: 1.8rem;
+        transform: translate(29px, -1px);
+      }
       &:nth-child(2) {
         display: block;
         margin-right: 10px;
@@ -20,22 +24,89 @@
         @include borderOval;
         @include size(40px, 40px);
       }
-      &:first-child {
-        font-size: 1.8rem;
-        transform: translate(28px, -2px);
-      }
     }
   }
   &__description {
+    padding: 0 10px;
+    @include breakpoint("large") {
+      padding: 0 40px;
+    }
     .about__text {
       text-align: justify;
-      font-size: 1.5rem;
+      font-size: 0.9rem;
       font-family: "Courier New", Courier, monospace;
       @include breakpoint("medium") {
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
       @include breakpoint("large") {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+      }
+    }
+  }
+  &__stack {
+    margin-top: 50px;
+    h2 {
+      text-align: center;
+    }
+    &-content {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 20px 20px 0 20px;
+      .about {
+        &__cover {
+          position: absolute;
+          left: 300px;
+          top: 160px;
+          background-color: $lightBlue;
+          transform: rotate(35deg);
+          transform-origin: top left;
+          z-index: -1;
+          @include size(300px, 400px);
+          @include animateWave;
+        }
+        &__technologie {
+          background-color: $darkWhite;
+          border-radius: 49%;
+          color: $dark;
+          font-size: 1.7rem;
+          font-family: "Courier New", Courier, monospace;
+          font-weight: 600;
+          overflow: hidden;
+          position: relative;
+          z-index: 2;
+          @include size(250px, 250px);
+          &-name {
+            @include centerXY;
+          }
+          &-extra {
+            border: 1px solid red;
+            position: relative;
+            @include size(210px, 210px);
+            @include centerXY;
+            > span {
+              margin: 0 10px;
+              font-size: 2.6rem;
+              opacity: 0.3;
+              white-space: nowrap;
+              &:nth-child(2) {
+                position: absolute;
+                top: 35px;
+                right: 0;
+              }
+              &:nth-child(3) {
+                position: absolute;
+                top: 130px;
+                left: 0;
+              }
+              &:nth-child(4) {
+                position: absolute;
+                bottom: 0px;
+                left: 60px;
+              }
+            }
+          }
+        }
       }
     }
   }
