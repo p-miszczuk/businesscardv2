@@ -1,0 +1,13 @@
+.footer {
+  text-align: center;
+  width: 200px;
+  font-family: "Courier New", Courier, monospace;
+  margin: 0 auto;
+  &.footer--home {
+    position: fixed;
+    bottom: 20px;
+    @include breakpoint("medium") {
+      right: 20px;
+    }
+  }
+}

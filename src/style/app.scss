@@ -1,4 +1,4 @@
-@import './colors.scss';
+@import "./colors.scss";
 
 .app {
   margin: 0 auto;
@@ -10,6 +10,8 @@
   background-color: $black;
   position: relative;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   .navigation-button {
     background: transparent;
@@ -20,6 +22,7 @@
     z-index: 1000;
     #menu-svg {
       padding: 0;
+      background-color: black;
       svg {
         width: 43px;
         height: 26px;
@@ -33,8 +36,7 @@
           stroke: white;
           stroke-width: 3;
           stroke-linecap: round;
-          transition: stroke-dashoffset
-              0.3s linear,
+          transition: stroke-dashoffset 0.3s linear,
             stroke-dasharray 0.3s linear;
         }
 

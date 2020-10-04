@@ -92,3 +92,15 @@
     }
   }
 }
+
+@mixin scaleAnim {
+  animation: scaleAnim 1s ease 0.5s forwards;
+  @keyframes scaleAnim {
+    0% {
+      transform: scale(0.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}

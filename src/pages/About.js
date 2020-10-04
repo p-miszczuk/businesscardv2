@@ -1,38 +1,37 @@
 import React from "react";
+import Description from "../components/Description";
+import Technologies from "../components/Technologies/Technologies";
+import HTML from "../images/html5-logo.svg";
+import CSS from "../images/css3-logo.svg";
+import JS from "../images/javascript-logo.svg";
+import REACT from "../images/react-logo.svg";
+import GIT from "../images/git-logo.svg";
+import RWD from "../images/rwd-logo.svg";
+import PHP from "../images/php-logo.svg";
+import MYSQL from "../images/mysql-logo.svg";
+import PHOTO from "../images/photoshop-logo.svg";
+import NODE from "../images/node-logo.svg";
+import BOOTSTRAP from "../images/bootstrap-logo.svg";
+import JQUERY from "../images/jquery-logo.svg";
+import AJAX from "../images/ajax-logo.svg";
+import REDUX from "../images/redux-logo.svg";
+import SASS from "../images/sass-logo.png";
+import MATERIAL from "../images/material-ui-logo.svg";
+import CYPRESS from "../images/cypress-logo.svg";
 
-const About = () => {
-  return (
-    <section className="about">
-      <header className="about__header">
-        <span>?</span>
-        <span />
-        <h2>O mnie</h2>
-      </header>
-      <div className="about__description">
-        {aboutContent.map(({ id, text }) => (
-          <p key={id} className="about__text">
-            {text}
-          </p>
-        ))}
-      </div>
-      <div className="about__stack">
-        <h2>Umiejętności i technologie</h2>
-        <div className="about__stack-content">
-          <div className="about__technologie">
-            <div className="about__technologie-name">JavaScript</div>
-            <div className="about__technologie-extra">
-              <span>Redux</span>
-              <span>Ajax</span>
-              <span>Redux 1</span>
-              <span>Ajax 1</span>
-            </div>
-            <div className="about__cover" />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+const url = process.env.REACT_APP_API_URL;
+
+const About = () => (
+  <section className="about">
+    <header className="about__header">
+      <span>?</span>
+      <span />
+      <h2>O mnie</h2>
+    </header>
+    <Description content={aboutContent} />
+    <Technologies stack={stack} />
+  </section>
+);
 
 const aboutContent = [
   {
@@ -54,7 +53,7 @@ const stack = {
     {
       id: 1,
       name: "HTML5",
-      img: ""
+      img: `${url}${HTML}`
     },
     {
       id: 2,
@@ -63,10 +62,12 @@ const stack = {
         {
           id: 1,
           name: "SASS (SCSS)",
-          img: ""
+          img: `${url}${SASS}`,
+          top: 0,
+          left: 0
         }
       ],
-      img: ""
+      img: `${url}${CSS}`
     },
     {
       id: 3,
@@ -75,15 +76,19 @@ const stack = {
         {
           id: 1,
           name: "AJAX",
-          img: ""
+          img: `${url}${AJAX}`,
+          top: 0,
+          left: 0
         },
         {
           id: 2,
           name: "jQuery",
-          img: ""
+          img: `${url}${JQUERY}`,
+          top: "130px",
+          right: "-10px"
         }
       ],
-      img: ""
+      img: `${url}${JS}`
     },
     {
       id: 4,
@@ -92,52 +97,65 @@ const stack = {
         {
           id: 1,
           name: "Redux",
-          img: ""
+          img: `${url}${REDUX}`,
+          top: "-10px",
+          left: "0"
         },
         {
           id: 2,
           name: "Material UI",
-          img: ""
+          img: `${url}${MATERIAL}`,
+          top: "45px",
+          left: "-20px"
         },
         {
           id: 3,
           name: "Bootstrap",
-          img: ""
+          img: `${url}${BOOTSTRAP}`,
+          top: "100px",
+          right: "0px"
+        },
+        {
+          id: 4,
+          name: "Cypress",
+          img: `${url}${CYPRESS}`,
+          top: "150px",
+          left: "-5px"
         }
       ],
-      img: ""
+      img: `${url}${REACT}`
     },
     {
       id: 5,
       name: "Git",
-      img: ""
+      img: `${url}${GIT}`
     },
     {
       id: 6,
       name: "RWD",
-      img: ""
+      img: `${url}${RWD}`
     }
   ],
   basic: [
     {
       id: 1,
       name: "Node",
-      img: ""
+      img: `${url}${NODE}`
     },
     {
       id: 2,
       name: "PHP",
-      img: ""
+      img: `${url}${PHP}`
     },
     {
       id: 3,
       name: "MySql",
-      img: ""
+      img: `${url}${MYSQL}`
     },
     {
       id: 4,
       name: "Photoshop",
-      img: ""
+      img: `${url}${PHOTO}`
     }
   ]
 };
