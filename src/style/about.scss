@@ -1,30 +1,7 @@
 .about {
   padding: 15px 15px 60px 15px;
   header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    &:hover {
-      span {
-        &:nth-child(2) {
-          @include animRotate;
-        }
-      }
-    }
-    span {
-      &:first-child {
-        font-size: 1.8rem;
-        transform: translate(29px, -1px);
-      }
-      &:nth-child(2) {
-        display: block;
-        margin-right: 10px;
-        position: relative;
-        @include borderOval;
-        @include size(40px, 40px);
-      }
-    }
+    @include headerContent;
   }
   &__description {
     padding: 0 10px;

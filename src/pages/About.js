@@ -18,6 +18,7 @@ import REDUX from "../images/redux-logo.svg";
 import SASS from "../images/sass-logo.png";
 import MATERIAL from "../images/material-ui-logo.svg";
 import CYPRESS from "../images/cypress-logo.svg";
+import FIREBASE from "../images/firebase-logo.svg";
 
 const url = process.env.REACT_APP_API_URL;
 
@@ -127,11 +128,16 @@ const stack = {
     },
     {
       id: 5,
+      name: "Firebase",
+      img: `${url}${FIREBASE}`
+    },
+    {
+      id: 6,
       name: "Git",
       img: `${url}${GIT}`
     },
     {
-      id: 6,
+      id: 7,
       name: "RWD",
       img: `${url}${RWD}`
     }

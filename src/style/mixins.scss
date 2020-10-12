@@ -34,3 +34,31 @@ $breakpoints: (
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin headerContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-top: 50px;
+  &:hover {
+    span {
+      &:nth-child(2) {
+        @include animRotate;
+      }
+    }
+  }
+  span {
+    &:first-child {
+      font-size: 1.8rem;
+      transform: translate(29px, -1px);
+    }
+    &:nth-child(2) {
+      display: block;
+      margin-right: 10px;
+      position: relative;
+      @include borderOval;
+      @include size(40px, 40px);
+    }
+  }
+}

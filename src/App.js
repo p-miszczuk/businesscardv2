@@ -14,7 +14,7 @@ function App() {
     <Router>
       <div className="app">
         <MenuButton doClick={toggleNavigation} toggleAnim={toggleNav} />
-        <Navigation isNavOpen={toggleNav} />
+        <Navigation isNavOpen={toggleNav} doClick={toggleNavigation} />
         <Content isNavOpen={toggleNav} />
         <Footer />
       </div>

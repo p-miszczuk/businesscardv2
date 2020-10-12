@@ -1,0 +1,128 @@
+.projects {
+  header {
+    @include headerContent;
+  }
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: calc(100vh - 180px);
+    padding: 50px 10px;
+    .project {
+      width: 300px;
+      height: 300px;
+      border: 1px solid white;
+      border-radius: 6px;
+      margin: 10px;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 120px;
+        z-index: 0;
+        opacity: 0.5;
+      }
+      &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 35px;
+        background-color: rgba(255, 255, 255, 0.2);
+        z-index: 2;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        .project {
+          &__name {
+            margin: 0 auto;
+            z-index: 2;
+            a {
+              text-decoration: none;
+              text-align: center;
+              color: white;
+              font-family: "Courier New", Courier, monospace;
+              font-weight: 600;
+              font-size: 1.2rem;
+            }
+          }
+          &__desc {
+            padding: 20px 10px 10px 10px;
+            position: relative;
+            text-align: center;
+            z-index: 2;
+            width: 210px;
+            height: 40px;
+            vertical-align: top;
+            color: white;
+            &::before {
+              content: "";
+              position: absolute;
+              top: 8px;
+              left: 0;
+              height: 1px;
+              width: 100%;
+              background-color: gray;
+              @include size(100%, 1px);
+            }
+          }
+          &__actions {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            z-index: 2;
+            .project__action {
+              border: 1px solid $white;
+              text-align: center;
+              margin: 4px;
+              border-radius: 4px;
+              padding: 8px 0;
+              background-color: $black;
+              cursor: pointer;
+              position: relative;
+              overflow: hidden;
+              @include size(120px, 25px);
+              &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background-color: rgba($white, 1);
+                transition: 0.5s;
+                z-index: 0;
+                opacity: 0;
+              }
+              &:hover {
+                color: $black;
+                border-color: $darkGreenRGBA;
+                &::after {
+                  height: 100%;
+                  padding-bottom: -30px;
+                  opacity: 1;
+                }
+              }
+              &--github {
+                &::after {
+                  content: "Kod źródłowy";
+                }
+              }
+              &--desc {
+                &::after {
+                  content: "Opis projektu";
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
