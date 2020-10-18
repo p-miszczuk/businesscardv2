@@ -40,3 +40,31 @@
     background-color: $darkGreen;
   }
 }
+
+.input__wrapper,
+.textarea__wrapper {
+  width: 100%;
+  margin-bottom: 30px;
+  input,
+  textarea {
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1.2rem;
+  }
+  textarea {
+    height: 200px;
+    overflow: hidden auto;
+    resize: none;
+  }
+  [type="submit"] {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .input__error {
+    color: $darkRed;
+    padding: 15px 10px 0 10px;
+  }
+}

@@ -129,3 +129,38 @@ export const projects = [
     github: "https://github.com/p-miszczuk/psdtohtml"
   }
 ];
+
+export const formularFields = [
+  {
+    id: 1,
+    name: "email",
+    type: "text",
+    placeholder: "e-mail",
+    required: true,
+    validOptions: { empty: true, includes: "@" },
+    validMessages: ["Wprowadz e-mail", "Email nie zawiera znaku @"]
+  },
+  {
+    id: 2,
+    name: "subject",
+    type: "text",
+    placeholder: "temat",
+    required: false
+  },
+  {
+    id: 3,
+    name: "message",
+    type: "textarea",
+    placeholder: "Wiadomość",
+    required: true,
+    validOptions: { empty: true },
+    validMessages: ["Nie lubię pustych wiadomości, napisz coś :)))"]
+  },
+  {
+    id: 4,
+    name: "send-button",
+    type: "submit",
+    value: "Wyślij",
+    required: false
+  }
+];
