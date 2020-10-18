@@ -32,7 +32,7 @@ export const routes = [
     path: "/contact"
   }
 ];
-console.log("logo", KS);
+
 export const projects = [
   {
     id: 1,
@@ -41,7 +41,7 @@ export const projects = [
     desc:
       "Gra polegająca na numerycznym ułożeniu kwadratów. 10 najlepszych wyników zapisywanych jest za pomocą Firebase.",
     shortDesc: "Gra przeglądarkowa Retro Game.",
-    tech: "React, Redux, Firebase, HTML, CSS",
+    tech: ["React", "Redux", "Firebase", "HTML", "CSS"],
     link: "https://oldgame-2019.firebaseapp.com/",
     github: "https://github.com/p-miszczuk/oldgame"
   },
@@ -51,7 +51,7 @@ export const projects = [
     img: getUrl(PM),
     desc: "Moja wizytówka w sieci. Wykorzystanie poznanych technologii",
     shortDesc: "Projekt strony internetowej, Moja wizytówka w sieci.",
-    tech: "React, JavaScript, HTML, CSS(SCSS)",
+    tech: ["React", "JavaScript", "HTML", "CSS(SCSS)"],
     link: "",
     github: ""
   },
@@ -59,24 +59,22 @@ export const projects = [
     id: 3,
     name: "KS Przedmieście",
     img: getUrl(KS),
-    desc: [
-      {
-        text: [
-          "Założeniem było napisanie strony prostej oraz przejrzystej. Zastosowanie poznawanych technologii.",
-          "Strona oprócz front-end`u posiada zaplecze back-end`owe z wykorzystaniem PHP oraz MySql. Administrator po zalogowaniu może m.in.:",
-          "Aktualnie storna nie jest dostępna"
-        ],
-        options: [
-          "Dodawać/modyfikować/usuwać wpisy",
-          "Dodawać/modyfikować/usuwać komentarze",
-          "Dodawać/modyfikować/usuwać wyniki meczów (po dodaniu wyniku meczu tabela automatycznie uzupełnia dane)",
-          "Tworzyć/modyfikować/usuwać tabelę oraz terminarz",
-          "Tworzyć/modyfikować/usuwać mecze następny / poprzedni",
-          "Tworzyć/modyfikować/usuwać galerię oraz poszczególne zdjęcia",
-          "Dodawać/modyfikować/usuwać informację o piłkarzach"
-        ]
-      }
-    ],
+    desc: {
+      text: [
+        "Założeniem było napisanie strony prostej oraz przejrzystej. Zastosowanie poznawanych technologii.",
+        "Aktualnie storna nie jest dostępna",
+        "Strona oprócz front-end`u posiada zaplecze back-end`owe z wykorzystaniem PHP oraz MySql. Administrator po zalogowaniu może m.in.:"
+      ],
+      options: [
+        "Dodawać/modyfikować/usuwać wpisy",
+        "Dodawać/modyfikować/usuwać komentarze",
+        "Dodawać/modyfikować/usuwać wyniki meczów (po dodaniu wyniku meczu tabela automatycznie uzupełnia dane)",
+        "Tworzyć/modyfikować/usuwać tabelę oraz terminarz",
+        "Tworzyć/modyfikować/usuwać mecze następny / poprzedni",
+        "Tworzyć/modyfikować/usuwać galerię oraz poszczególne zdjęcia",
+        "Dodawać/modyfikować/usuwać informację o piłkarzach"
+      ]
+    },
     shortDesc: "Strona Klubu Sportowego Przedmieście Jarosław",
     tech: [
       "HTML5",

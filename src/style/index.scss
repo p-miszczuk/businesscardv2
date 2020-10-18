@@ -8,6 +8,14 @@ body {
   background: black;
   overflow-x: hidden;
   color: white;
+  box-sizing: border-box;
+}
+
+div,
+section,
+p,
+article {
+  box-sizing: border-box;
 }
 
 code {
@@ -23,3 +31,4 @@ code {
 @import "./home.scss";
 @import "./about.scss";
 @import "./projects.scss";
+@import "./tools.scss";

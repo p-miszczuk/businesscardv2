@@ -1,0 +1,42 @@
+.cross {
+  background-color: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  @include size(20px, 20px);
+  &:hover {
+    & > span {
+      background-color: $darkGreen;
+    }
+  }
+  & > span {
+    display: block;
+    background-color: $white;
+    transition: 300ms;
+    @include size(23px, 1px);
+    &:first-child {
+      transform: rotate(-45deg) translate(-5px, -3px);
+      transform-origin: center right;
+    }
+    &:last-child {
+      transform: rotate(45deg) translate(0.5px, 0.5px);
+      transform-origin: center left;
+    }
+  }
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  &__tab {
+    border: 1px solid $darkBlue;
+    border-radius: 5px;
+    min-width: 120px;
+    text-align: center;
+    padding: 7px 10px;
+    color: $white;
+    margin: 0 8px 8px 0;
+    background-color: $darkGreen;
+  }
+}

@@ -1,6 +1,5 @@
 import React from "react";
-import Project from "../components/Project";
-import { projects } from "../utils";
+import ProjectsContent from "../components/ProjectsContent";
 
 const Projects = () => (
   <section className="projects">
@@ -9,11 +8,7 @@ const Projects = () => (
       <span />
       <h2>Portfolio</h2>
     </header>
-    <div className="projects__content">
-      {projects.map((project) => (
-        <Project key={project.id} {...project} />
-      ))}
-    </div>
+    <ProjectsContent />
   </section>
 );
 
