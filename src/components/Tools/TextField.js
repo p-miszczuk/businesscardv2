@@ -12,7 +12,7 @@ const TextField = React.memo(
     validMessages
   }) => {
     const getErrorMsg = (valid) => (
-      <span className="input__error">{validMessages[valid - 1]}</span>
+      <span className="input__error">{validMessages[valid]}</span>
     );
 
     if (type === "textarea") {

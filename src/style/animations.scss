@@ -104,3 +104,21 @@
     }
   }
 }
+
+@mixin contactAnim {
+  animation: contactAnim 1s ease 1s forwards;
+  @keyframes contactAnim {
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
+@mixin contactButtonAnim {
+  animation: contactButtonAnim 1s ease 1s forwards;
+  @keyframes contactButtonAnim {
+    100% {
+      opacity: 1;
+    }
+  }
+}

@@ -40,12 +40,27 @@
       border: 1px solid $darkRed;
       border-radius: 10px;
       padding: 10px;
+      overflow: hidden;
       @include size(100%, auto);
       @include breakpoint("large") {
         @include size(600px, auto);
       }
       form {
         width: 100%;
+        > div {
+          @include contactAnim;
+          &:nth-child(even) {
+            transform: translateX(600px);
+          }
+          &:nth-child(odd) {
+            transform: translateX(-600px);
+          }
+          &:last-child {
+            transform: translate(0);
+            opacity: 0;
+            @include contactButtonAnim;
+          }
+        }
       }
     }
   }

@@ -133,31 +133,46 @@ export const projects = [
 export const formularFields = [
   {
     id: 1,
-    name: "email",
+    name: "name",
     type: "text",
-    placeholder: "e-mail",
+    placeholder: "Imię lub nazwa firmy",
     required: true,
-    validOptions: { empty: true, includes: "@" },
-    validMessages: ["Wprowadz e-mail", "Email nie zawiera znaku @"]
+    validOptions: { empty: true, minSigns: 3 },
+    validMessages: {
+      empty: "Wprowadź imię lub nazwę",
+      minSigns: "Pole powinno zawierać minimum 3 znaki"
+    }
   },
   {
     id: 2,
-    name: "subject",
+    name: "email",
     type: "text",
-    placeholder: "temat",
-    required: false
+    placeholder: "E-mail",
+    required: true,
+    validOptions: { empty: true, includes: "@" },
+    validMessages: {
+      empty: "Wprowadź e-mail",
+      includes: "Email nie zawiera znaku @"
+    }
   },
   {
     id: 3,
+    name: "subject",
+    type: "text",
+    placeholder: "Temat wiadomości",
+    required: false
+  },
+  {
+    id: 4,
     name: "message",
     type: "textarea",
     placeholder: "Wiadomość",
     required: true,
     validOptions: { empty: true },
-    validMessages: ["Nie lubię pustych wiadomości, napisz coś :)))"]
+    validMessages: { empty: "Nie lubię pustych wiadomości, napisz coś :)))" }
   },
   {
-    id: 4,
+    id: 5,
     name: "send-button",
     type: "submit",
     value: "Wyślij",

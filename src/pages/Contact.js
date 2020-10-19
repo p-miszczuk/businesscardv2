@@ -4,6 +4,7 @@ import ContactIcon from "../images/contact.png";
 import TextField from "../components/Tools/TextField";
 
 const Contact = () => {
+  const [comp, setComp] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
@@ -20,13 +21,16 @@ const Contact = () => {
     return {};
   };
 
-  const getStates = (name) => {
+  const getStates = (fieldName) => {
     let values = {};
-    if (name === "email") {
+
+    if (fieldName === "name") {
+      values = { value: comp, doChange: setComp };
+    } else if (fieldName === "email") {
       values = { value: email, doChange: setEmail };
-    } else if (name === "subject") {
+    } else if (fieldName === "subject") {
       values = { value: subject, doChange: setSubject };
-    } else if (name === "message") {
+    } else if (fieldName === "message") {
       values = { value: message, doChange: setMessage };
     }
 
@@ -38,12 +42,14 @@ const Contact = () => {
 
     formularFields.forEach(({ name, required, validOptions }) => {
       if (required) {
-        const { empty, includes } = validOptions;
+        const { empty, includes, minSigns } = validOptions;
 
         if (empty && !valuesToSend[name]) {
-          errorsObj.push({ error: name, value: 1 });
+          errorsObj.push({ error: name, value: "empty" });
         } else if (includes && !valuesToSend[name].includes(includes)) {
-          errorsObj.push({ error: name, value: 2 });
+          errorsObj.push({ error: name, value: "includes" });
+        } else if (minSigns && valuesToSend[name].length < minSigns) {
+          errorsObj.push({ error: name, value: "minSigns" });
         }
       }
     });
@@ -54,6 +60,7 @@ const Contact = () => {
     e.preventDefault();
 
     const valuesToSend = {
+      name: comp,
       email,
       subject,
       message
@@ -61,6 +68,7 @@ const Contact = () => {
 
     const shouldSend = validateFields(valuesToSend);
     if (shouldSend && shouldSend.length === 0) {
+      errors && setErrors(null);
       console.log("you can send this");
     } else {
       setErrors(shouldSend);
@@ -84,13 +92,7 @@ const Contact = () => {
                 const error = getError(field.name);
 
                 return (
-                  <TextField
-                    key={field.id}
-                    v
-                    {...error}
-                    {...states}
-                    {...field}
-                  />
+                  <TextField key={field.id} {...error} {...states} {...field} />
                 );
               })}
           </form>
