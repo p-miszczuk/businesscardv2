@@ -9,7 +9,7 @@ const Footer = ({ history: { location } }) => {
 
   return (
     <div className={footerClasses}>
-      <h4>Piotr Miszczuk &copy;{new Date().getFullYear()}</h4>
+      <h4>Realizacja: Piotr Miszczuk &copy;{new Date().getFullYear()}</h4>
     </div>
   );
 };

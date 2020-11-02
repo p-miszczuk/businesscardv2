@@ -5,6 +5,9 @@ import PM from "../images/projects-images/pm.png";
 import SNAKE from "../images/projects-images/snake.jpg";
 import CLOCK from "../images/projects-images/clock.jpg";
 import PSD from "../images/projects-images/psd.jpg";
+import EMAIL from "../images/contact.png";
+import PHONE from "../images/phone.png";
+import GITHUB from "../images/github.png";
 
 const url = process.env.REACT_APP_API_URL;
 
@@ -177,5 +180,38 @@ export const formularFields = [
     type: "submit",
     value: "Wyślij",
     required: false
+  }
+];
+
+const FORMS_FLAGS = {
+  phone: "phone",
+  email: "email",
+  github: "github"
+};
+
+export const contactForms = [
+  {
+    id: 1,
+    name: FORMS_FLAGS.phone,
+    text: "697 232 839",
+    image: PHONE,
+    link: "tel:+48697232839",
+    target: "_self"
+  },
+  {
+    id: 2,
+    name: FORMS_FLAGS.email,
+    text: "piotr.miszczuk@interia.pl",
+    image: EMAIL,
+    link: "mailto:piotr.miszczuk@interia.pl",
+    target: "_self"
+  },
+  {
+    id: 3,
+    name: FORMS_FLAGS.github,
+    text: "p-miszczuk",
+    image: GITHUB,
+    link: "https://github.com/p-miszczuk",
+    target: "_blank"
   }
 ];
