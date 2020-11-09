@@ -2,6 +2,7 @@ import React from "react";
 
 const TextField = React.memo(
   ({
+    disableButton,
     doChange,
     error,
     name,
@@ -30,6 +31,7 @@ const TextField = React.memo(
     return (
       <div className="input__wrapper">
         <input
+          disabled={disableButton && type === "submit"}
           onChange={(e) => doChange(e.target.value)}
           name={name}
           value={value}

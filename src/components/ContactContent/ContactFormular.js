@@ -1,6 +1,9 @@
 import { formularFields } from "../../utils";
-import React, { useState } from "react";
+import classnames from "classnames";
+import React, { useState, useEffect } from "react";
 import TextField from "../Tools/TextField";
+
+const url = "http://localhost:3010/sendEmail";
 
 const ContactFormular = () => {
   const [comp, setComp] = useState("");
@@ -8,6 +11,14 @@ const ContactFormular = () => {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState(null);
+  const [sendMsg, setSendMsg] = useState(null);
+  const [disableButton, setDisableButton] = useState(false);
+
+  useEffect(() => {
+    if ((comp || email || subject || message) && sendMsg) {
+      setSendMsg(null);
+    }
+  }, [comp, email, subject, message, sendMsg]);
 
   const getError = (name) => {
     if (errors && errors.length > 0) {
@@ -18,6 +29,14 @@ const ContactFormular = () => {
     }
 
     return {};
+  };
+
+  const getSendMsg = (value) => {
+    const classSend = classnames("contact__send-message", {
+      "contact__send--error": value.includes("błąd")
+    });
+
+    return <p className={classSend}>{value}</p>;
   };
 
   const getStates = (fieldName) => {
@@ -34,6 +53,15 @@ const ContactFormular = () => {
     }
 
     return values;
+  };
+
+  const setMessageInfo = (value) => {
+    subject && setSubject("");
+    setComp("");
+    setEmail("");
+    setMessage("");
+    setDisableButton(false);
+    setSendMsg(value.error || value.msg);
   };
 
   const validateFields = (valuesToSend) => {
@@ -58,6 +86,7 @@ const ContactFormular = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    sendMsg && setSendMsg(null);
 
     const valuesToSend = {
       name: comp,
@@ -67,9 +96,28 @@ const ContactFormular = () => {
     };
 
     const shouldSend = validateFields(valuesToSend);
+
     if (shouldSend && shouldSend.length === 0) {
       errors && setErrors(null);
-      console.log("you can send this");
+      setDisableButton(true);
+
+      fetch(url, {
+        method: "POST",
+        // mode: "cors",
+        // cache: "no-cache",
+        // credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json"
+          //'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: JSON.stringify(valuesToSend)
+      })
+        .then((resp) => resp.json())
+        .then((data) => setMessageInfo(data))
+        .catch((error) => {
+          console.error(error);
+          setDisableButton(false);
+        });
     } else {
       setErrors(shouldSend);
     }
@@ -84,9 +132,16 @@ const ContactFormular = () => {
             const error = getError(field.name);
 
             return (
-              <TextField key={field.id} {...error} {...states} {...field} />
+              <TextField
+                key={field.id}
+                disableButton={disableButton}
+                {...error}
+                {...states}
+                {...field}
+              />
             );
           })}
+        {sendMsg && getSendMsg(sendMsg)}
       </form>
     </div>
   );
